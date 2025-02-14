@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello JavaScript</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+<h1>JavaScript</h1>
+<p>- <span class="header">Environment</span> Visual Studio Code + Live Server</p>
+<p>- <span class="header">Syntax</span> Có thể dùng dấu ';' để kết thúc lệnh hoặc không. <b>Tuy nhiên nên có</b></p>
+<p>- <span class="header">Comment</span> /**/ hoặc //. Trên VS Code có thể nhấn /** hoặc Ctrl + /</p>
+<p>- <span class="header"><a href="html_dom.html" target="_self">HTML DOM</a></span> Chuẩn Web của W3C. Cấu trúc cây được Browser sinh khi đọc mã HTML. JS cung cấp API cho phép xử lý HTML DOM này</p>
+
+<h2>Variables and Data Types</h2>
+<p>- <span class="header">Convention</span> camelCase. <span class="code">var [name] = [value]</span></p>
+<p>- <span class="header">Data Types</span></p>
+<p><span class="header2 space-1">Primitive</span>Number, String, Boolean, Undefined, Null và Symbol (ES6)</p>
+<p><span class="header2 space-1">Complex</span>Function và Object</p>
+<p class="space-2"><i>Function</i>: <span class="code">var f = function() {...statements [;]...}</span>: Chỉ được thực thi khi gọi f()</p>
+<p class="space-2"><i>Object</i>: <span class="code">var o = {...key: value [,]...}</span>: value có thể có kiểu dữ liệu bất kì</p>
+<p class="space-2"><i>Array</i>: <span class="code">var a = [...item [,]...]</span>: item có thể có kiểu dữ liệu bất kì</p>
+<p class="space-3">Array là một Object với key là các chỉ số bắt đầu từ 0. Ta có thể kiểm tra qua method <span class="code">Array.isArray()</span></p>
+<p>- <span class="header">Check Data Type</span> Sử dụng <span class="code">typeof [var]</span></p>
+<p>- <span class="header">Special Values</span></p>
+<p class="space-1">undefined: Một biến chỉ được khai báo mà không gán giá trị ngay</p>
+<p class="space-1">null: Một biến được gán giá trị <span class="code">null</span>. Mặc định có kiểu Object</p>
+<p class="space-1">NaN: Một biến Number nhưng kết quả không xác định. VD: 100 / 'ABC'. Ta có thể kiểm tra qua hàm <span class="code">boolean isNaN(value)</span></p>
+<p class="space-1">Infinity: Một biến Number nhưng kết quả vô cùng. VD: 100 / 0</p>
+
+<h2>Some Built-in Functions</h2>
+<p>- <span class="header">Alert</span> Hiển thị hộp thoại thông báo. <i>Chỉ có nút OK</i></p>
+<p class="space-1">void alert(string message);</p>
+
+<p>- <span class="header">Confirm</span> Hiển thị hộp thoại thông báo. <i>Có nút OK và Cancel</i></p>
+<p class="space-1">boolean confirm(string message);</p>
+
+<p>- <span class="header">Prompt</span> Hiển thị hộp thoại thông báo. <i>Có nút OK và Cancel. Có thêm EditText Box</i></p>
+<p class="space-1">string prompt(string message);</p>
+
+<p>- <span class="header">Console</span> Quản lý Tab console của Inspect Tools</p>
+<p class="space-1">void console.log('[message]'); hoặc console.log([variable]);</p>
+
+<p>- <span class="header">Set Timeout</span> Thực hiện một function <i>sau</i> một khoảng thời gian</p>
+<p class="space-1">setTimeout(function() {...}, [time_in_ms])</p>
+
+<p>- <span class="header">Set Interval</span> Thực hiện một function <i>liên tục cứ sau</i> một khoảng thời gian</p>
+<p class="space-1">setInterval(function() {...}, [time_in_ms])</p>
+
+<h2>Some special</h2>
+<p>- <span class="header">Exponent</span> (**). <span class="code">2**3 = 8</span></p>
+<p>- <span class="header">Type Comparison</span> (=== và !==). So sánh cả về giá trị và kiểu dữ liệu. VD: <span class="code">1 == '1'</span> : true, nhưng <span class="code">1 === '1'</span> : false</p>
+<p>- <span class="header">And Working</span> (&&). Giá trị trả về là giá trị false (false, null, undefined, NaN, '', 0) đầu tiên hoặc mặc định trả về giá trị cuối cùng. VD: <span class="code">1 && 'A'</span> trả về 'A'</p>
+<p>- <span class="header">Or Working</span> (||). Giá trị trả về là giá trị true đầu tiên hoặc mặc định trả về giá trị cuối cùng. VD: <span class="code">NaN || 'A' || 1</span> trả về 'A'</p>
+<p>- <span class="header">For In</span> Duyệt các Key của một Object (bao gồm cả Array và String): <span class="code">for(var key in o) { }</span></p>
+<p>- <span class="header">For Of</span> Duyệt các Value của một Array hoặc String hoặc Iterable Object: <span class="code">for(var value of a) { }</span></p>
+
+
+<h2>Working on Strings</h2>
+<p>- <span class="header">String Creation</span></p>
+<p><span class="header2 space-1">Static</span>Có thể sử dụng '' hoặc ""</p>
+<p><span class="header2 space-1">Object Initialization</span><span class="code">new String()</span>: Tạo một Array thay vì một string</p>
+
+<p>- <span class="header">String Operations</span></p>
+<p><span class="header2 space-1">Get Length</span>Có thể sử dụng <span class="code">.length</span> với cả Static và Object String</p>
+<p><span class="header2 space-1">Get Char</span><span class="code">.charAt(index)</span> hoặc <span class="code">[index]</span></p>
+<p><span class="header2 space-1">String concatenation</span>Dùng toán từ +</p>
+
+<p>- <span class="header">String Format (ES6)</span>: Format được đặt trong cặp kí tự `` (khác với '')</p>
+<p class="space-1">Biến trong Format được đặt bên trong <span class="code">${...}</span></p>
+<p class="space-1">VD: <span class="">console.log(`My name is ${myName}`)</span></p>
+
+<p>- <span class="header">Some String methods</span></p>
+<p><span class="header2 space-1">Find</span>Tìm vị trí xuất hiện đầu tiên của một chuỗi hoặc -1, bắt đầu tìm kiếm tại một vị trí xác định: <span class="code">.indexOf(string, start_index)</span></p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.indexOf('l', 4));</span> : 9</p>
+<p><span class="header2 space-1">Find Last</span>Tương tự Find nhưng hướng tìm kiếm từ cuối lên đầu: <span class="code">.lastIndexOf(string, start_index)</span></p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.lastIndexOf('l', 4));</span> : 3</p>
+<p><span class="header2 space-1">Find using REGEX</span>Tìm vị trí xuất hiện đầu tiên theo REGEX: <span class="code">.search(regex)</span></p>
+
+<p><span class="header2 space-1">Get Substring</span>Lấy một chuỗi con tại vị trí xác định, chỉ số âm thể hiện chiều ngược lại (bắt đầu từ -1): <span class="code">.slice(start_index, end_index)</span></p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.slice(6, 10));</span> : Worl</p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.slice(6, -2));</span> : Wor</p>
+
+<p><span class="header2 space-1">Replace</span>Thay thế các kết quả tìm kiếm một chuỗi bằng một chuỗi khác. Nếu dùng string trực tiếp sẽ chỉ thay thế chuỗi đầu tiên tìm thấy: <span class="code">.replace(string, start_index)</span></p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.replace('ll', 'r'));</span> : Hero World</p>
+
+<p><span class="header2 space-1">Case Converting</span>Chuyển đổi về UpperCase hoặc LowerCase: <span class="code">.toUpperCase()</span> và <span class="code">.toLowerCase()</span></p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.toUpperCase());</span> : HELLO WORLD</p>
+
+<p><span class="header2 space-1">Trim</span>Xóa bỏ khoảng trắng và các kí tự kết thúc dòng ở đầu và/hoặc cuối chuỗi: <span class="code">.trim()</span> hoặc <span class="code">.trimStart()</span> hoặc <span class="code">.trimEnd()</span></p>
+<p class="space-2">VD: <span class="">console.log('Hello World'.indexOf('l', 4));</span> : 9</p>
+
+<p><span class="header2 space-1">Split</span>Tách các phần của một chuỗi sử dụng một delimiter và chứa kết quả vào mảng: <span class="code">.split(delimiter, count)</span> với count xác định số lượng chuỗi tách được sẽ được đưa vào mảng kết quả</p>
+<p class="space-2">VD: <span class="">console.log('JavaScript, PHP, Ruby'.split(', ', 2));</span> : ['JavaScript', 'PHP']</p>
+
+<h2>Working on Arrays</h2>
+<p>- <span class="header">Array Operations</span></p>
+<p><span class="header2 space-1">Get Length</span>Có thể sử dụng <span class="code">.length</span> với cả Static và Object Array</p>
+<p><span class="header2 space-1">Is Array</span><span class="code">Array.isArray()</span></p>
+<p><span class="header2 space-1">Index</span>Chỉ số của mảng trong đoạn [0, .length - 1]. Chỉ số âm tương ứng là [-1, -2,..., -.length], tuy nhiên không thể dùng để lấy phần tử, có thể dùng trong một số methods</p>
+<p><span class="header2 space-1">To String</span>Nối các phần tử của mảng thành chuỗi phân cách nhau bởi dấu ,: <span class="code">.toString()</span></p>
+
+<p>- <span class="header">Some Array methods</span></p>
+<p><span class="header2 space-1">Join</span>Nối các phần tử của mảng sử dụng một delimiter và trả về một String : <span class="code">.join(delimiter)</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}, null].join(' - '));</span> : Hello World - 123 - [object Object] - </p>
+
+<p><span class="header2 space-1">Pop</span>Xóa phần tử <b>cuối</b> mảng và trả về phần tử đã xóa (hoặc undefined nếu mảng rỗng): <span class="code">.pop()</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].pop());</span> : Hello World</p>
+<p><span class="header2 space-1">Shift</span>Xóa phần tử <b>đầu</b> mảng và trả về phần tử đã xóa (hoặc undefined nếu mảng rỗng): <span class="code">.shift()</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].shift());</span> : 123</p>
+
+<p><span class="header2 space-1">Push</span>Thêm toàn bộ <b>một hoặc nhiều</b> phần tử vào <b>cuối</b> mảng và trả về chiều dài của mảng sau khi thêm: <span class="code">.push(...items)</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].push(null, undefined, false));</span> : 6 : [123, {…}, 'Hello World', null, undefined, false]</p>
+<p><span class="header2 space-1">Unshift</span>Thêm toàn bộ <b>một hoặc nhiều</b> phần tử vào <b>đầu</b> mảng và trả về chiều dài của mảng sau khi thêm: <span class="code">.push(...items)</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].unshift(null, undefined, false));</span> : 6 : [null, undefined, false, 123, {…}, 'Hello World']</p>
+<p><span class="header2 space-1">Concat</span>Thêm <b>một hoặc nhiều</b> phần tử hoặc một mảng khác vào <b>cuối</b> mảng và trả về mảng mới chứa kết quả sau khi thêm: <span class="code">.concat(...items)</span> hoặc <span class="code">.concat(array)</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].concat([null, undefined, false]));</span> : [123, {…}, 'Hello World', null, undefined, false]</p>
+
+<p><span class="header2 space-1">Splicing</span>Xóa một hoặc nhiều phần tử bắt đầu từ vị trí xác định và thêm một hoặc nhiều phần tử vào vị trí bị xóa, trả về một mảng chứa các phần tử bị xóa: <span class="code">.splice(start, count,...items)</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].splice(1, 2, null, undefined, false));</span> : [{...}, 'Hello World'] : [123, null, undefined, false]</p>
+<p><span class="header2 space-1">Slicing</span>Cắt một hoặc nhiều phần tử bắt đầu từ vị trí xác định, kết thúc tại vị trí xác định và trả về mảng mới chứa kết quả: <span class="code">.splice(start, count,...items)</span></p>
+<p class="space-2">VD: <span class="">console.log([123, {name: "Vũ Xuân Bắc", age: 22}, 'Hello World'].slice(1, 2));</span> : [{...}]</p>
+
+<p>- <span class="header">Some Array methods using Iterating</span></p>
+<p><span class="header2 space-1">For Each</span>Duyệt các phần tử của mảng và thực hiện một hàm với mỗi phần tử: <span class="code">.forEach(function(value, index){  })</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}, null].forEach(function(value, index){ console.log(`${index}: ${value}`)} ));</span></p>
+<p><span class="header2 space-1">Is True For All</span>Kiểm tra xem tất cả các phần tử của mảng thỏa mãn một điều kiện cho trước xác định bởi một hàm: <span class="code">.every(function(value, index){  })</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}].every(function(value, index){ return value !== null } ));</span> : true</p>
+<p><span class="header2 space-1">Has Any True</span>Kiểm tra xem có phần tử nào của mảng thỏa mãn một điều kiện cho trước xác định bởi một hàm: <span class="code">.some(function(value, index){  })</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}].some(function(value, index){ return value === 123; } ));</span> : true</p>
+<p><span class="header2 space-1">Find Item</span>Tìm phần tử đầu tiên của mảng thỏa mãn một điều kiện cho trước xác định bởi một hàm: <span class="code">.find(function(value, index){  })</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}].find(function(value, index){ return value > 0} ));</span> : 123</p>
+<p><span class="header2 space-1">Find All</span>Tìm tất cả các phần tử của mảng thỏa mãn một điều kiện cho trước xác định bởi một hàm: <span class="code">.filter(function(value, index){  })</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}].filter(function(value, index){ return value !== null } ));</span>: ['Hello World', 123, {...}]</p>
+<p><span class="header2 space-1">Map</span>Thay thế tất cả các phần tử của mảng bằng giá trị trả về của một hàm và trả về mảng mới: <span class="code">.map(function(value, index, originArray){  })</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}].map(function(value, index){ return value.toString().toUpperCase() } ));</span>: ['HELLO WORLD', '123', '[OBJECT OBJECT]']</p>
+<p><span class="header2 space-1">Reduce</span>Thực hiện một tính toán trên tất cả các phần tử của mảng thông qua một hàm và lưu trữ (thông qua giá trị trả về của hàm) nó lại sử dụng cho phần tử phía sau: <span class="code">.reduce(function(accumulate, value, index, originArray){  }, initial_value_for_accumulate)</span></p>
+<p class="space-2">VD: <span class="">console.log(['Hello World', 123, {name: "Vũ Xuân Bắc", age: 22}].reduce(function(accumulate, value, index){ return accumulate + ":" + value.toString() }, 0 ));</span>: '0:Hello World:123:[object Object]'</p>
+
+<h2>Working on Objects</h2>
+<p>- <span class="header">Object Creation</span></p>
+<p class="space-1">Key của Object có thể nhận bằng giá trị của một biến bằng việc thêm [] cho Key đó.</p>
+<p class="space-2">VD: <span class="">var key = 123; var o = { [key]: 'A number' }; console.log(o)</span> : { 123: 'A number' }</p>
+<p class="space-1">Ta có thể truy xuất (Get, Set) value của một key hoặc thêm một key bằng <span class="code">.key</span> hoặc <span class="code">['key']</span></p>
+<p class="space-2">VD: <span class="">var key = 123; var o = { [key]: 'A number' }; o.name = 'My Object'; console.log(o['123']);</span> : 'A number' : { 123: 'A number', name: 'My Object'}</p>
+<p class="space-1">Ta có thể xóa một key bằng <span class="code">delete object.key</span></p>
+<p>- <span class="header">Constructor</span> Khai báo như một Function trong đó sử dụng từ khóa <span class="code">this</span> để xác định các Keys cho object.</p>
+<p class="space-2">VD: <span class="">function User(name, avatar){ this.name = name; this.avatar = avatar }</span></p>
+<p class="space-2">    <span class="">var user1 = new User('Vũ Xuân Bắc', link_to_avatar)</span></p>
+<p class="space-1">Function này sẽ được gán cho __proto__ <b><span class="code">constructor</span></b> của Object.</p>
+<p class="space-2">VD: <span class="">user1.constructor === User</span></p>
+<p class="space-1">Một Object được tạo qua Constructor có thể có thêm các Key-Value khác</p>
+<p class="space-2">VD: <span class="">user1.age = 12</span> : { name: 'Vũ Xuân Bắc', avatar: ...., age: 12 }</p>
+
+<p>- <span class="header">Prototype</span> Nguyên mẫu chung cho các Object. Khi thay đổi Prototype thì các Object sẽ thay đổi theo.
+<p class="space-1">Prototype chỉ được dùng với Class. Thay đổi Prototype là thay đổi ở mức Class. Giống với static members trong Class.</p>
+<p class="space-1">Truy cập vào Prototype của một Class bằng thuộc tính <span class="code">prototype</span></p>
+<p class="space-2">VD: <span class="">function User(name, avatar){ this.name = name; this.avatar = avatar }</span></p>
+<p class="space-2">    <span class="">User.prototype.new_key = new_value</span></p>
+
+
+<h2>Functions</h2>
+<p>- <span class="header">Creation</span></p>
+<p><span class="header2 space-1">Declaration Function</span>Sử dụng từ khóa <b>function</b> trước tên hàm: <span class="code">function [name]([params]) { [statements;] }</span></p>
+<p><span class="header2 space-1">Expression Function</span> (Anonymous Function) Sử dụng từ khóa <b>function</b> và <b>không có tên hàm</b>: <span class="code">function([params]) { [statements;] }</span>. Ta cũng có thể đặt tên cho hàm với cú pháp tương tự Declaration Function</p>
+<p><span class="header2 space-1">Arrow Function</span>Không cần sử dụng từ khóa <b>function</b> và cũng không cần chỉ định tên: <span class="code">([params]) => { [statements;] }</span>. Nếu hàm chỉ có lệnh trả về thì có thể bỏ {} và "return". <i>Chú ý là Arrow Functions không có context, tức là không thể sử dụng từ khóa this bên trong nó</i></p>
+<p class="space-1">Điểm khác biệt giữa <b>Declaration Function</b> và <b>Expression Function</b> là ở cơ chế <b>Hosting</b> khi mà <b>Declaration Function</b> cho phép gọi trước khi định nghĩa, còn <b>Expression Function</b> thì không</p>
+<p class="space-1">Khi có các hàm trùng tên thì hàm được định nghĩa sau sẽ ghi đè.</p>
+<p class="space-1">Các tham số không chỉ định kiểu dữ liệu</p>
+
+<p>- <span class="header">Calling</span></p>
+<p class="space-1">Một hàm chỉ được định nghĩa thì không thể thực thi. Ta có thể gọi tên hàm để thực thi một hàm</p>
+<p class="space-1">Khi truyền thiếu đối số thì các đối số còn lại mặc định nhận giá trị undefined</p>
+<p class="space-1">Một hàm có thể nhận số lượng đối số bất kì. Tất cả các đối số truyền vào hàm được lưu vào Object <span class="code">arguments</span>, kể cả với các tham số có tên và không tên. Ta có thể truy xuất các phần tử trong <span class="code">arguments</span> qua vòng lặp <span class="code">for...of</span></p>
+<p class="space-1">Một hàm không return sẽ mặc định trả về undefined</p>
+
+</body>
+</html>
